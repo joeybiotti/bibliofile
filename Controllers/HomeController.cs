@@ -8,6 +8,7 @@ namespace bibliofile.Controllers
 {
     public class HomeController : Controller
     {
+        // Built by scaffolding-- 9/11
         public IActionResult Index()
         {
             return View();
