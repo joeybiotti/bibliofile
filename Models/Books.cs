@@ -8,6 +8,7 @@ using Microsoft.AspNetCore;
 namespace bibliofile.Models
 {
     public class Books
+    //Worked on 9/11
     {
         [Key]
         public int BookId {get; set;}

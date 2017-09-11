@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 
 namespace bibliofile.Models
 {
+    //Worked on 9/11
     public class UserBooks
     {   
         [Key]

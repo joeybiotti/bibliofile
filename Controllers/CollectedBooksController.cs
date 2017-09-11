@@ -10,6 +10,7 @@ using bibliofile.Models;
 
 namespace bibliofile.Controllers
 {
+    // Built by scaffolding-- 9/11
     public class CollectedBooksController : Controller
     {
         private readonly ApplicationDbContext _context;

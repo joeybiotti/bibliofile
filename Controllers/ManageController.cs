@@ -13,6 +13,7 @@ using bibliofile.Services;
 
 namespace bibliofile.Controllers
 {
+    // Built by scaffolding-- 9/11
     [Authorize]
     public class ManageController : Controller
     {
