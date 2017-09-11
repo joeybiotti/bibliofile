@@ -12,7 +12,7 @@ namespace bibliofile.Models
         [Required]
         public ApplicationUser User {get; set;}
         [Required]
-        public int BookId {get; set;}
+        public Books Book {get; set;}
         [Required]
         public bool IsRead {get; set;} 
     }
