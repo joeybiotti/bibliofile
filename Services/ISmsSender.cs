@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace bibliofile.Services
+namespace Bibliofile.Services
 {
     public interface ISmsSender
     {

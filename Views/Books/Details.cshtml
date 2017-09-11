@@ -1,4 +1,4 @@
-@model bibliofile.Models.Books
+@model Bibliofile.Models.Books
 
 @{
     ViewData["Title"] = "Details";
@@ -27,6 +27,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Summary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image)
         </dd>
     </dl>
 </div>

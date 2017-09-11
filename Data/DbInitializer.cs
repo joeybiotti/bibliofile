@@ -2,10 +2,10 @@ using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using bibliofile.Models;
-using bibliofile.Data;
+using Bibliofile.Models;
+using Bibliofile.Data;
 
-namespace bibliofile.Data
+namespace Bibliofile.Data
 {
     public static class DBInitilzer
     {
@@ -13,10 +13,28 @@ namespace bibliofile.Data
         {
             using (var context = new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
+                //check DB for any books
                 if (context.Books.Any())
                 {
-                    return;
+                    return; //DB has been seeded
                 }
+
+                //Seeder data
+                var book = new Books[]
+                {
+                    new Books{
+                        Title = "Post Office", 
+                        Author = "Charles Bukowski", 
+                        Image = "https://www.goodreads.com/book/photo/51504.Post_Office",
+                    },
+                };
+                
+                foreach(Books x in book)
+                {
+                     context.Add(x);
+                     context.SaveChanges();
+                }
+           
             }
         }
     }

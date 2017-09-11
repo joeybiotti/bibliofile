@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using bibliofile.Data;
-using bibliofile.Models;
-using bibliofile.Services;
+using Bibliofile.Data;
+using Bibliofile.Models;
+using Bibliofile.Services;
 
-namespace bibliofile
+namespace Bibliofile
 {
     public class Startup
     {
@@ -72,6 +72,8 @@ namespace bibliofile
             }
 
             app.UseStaticFiles();
+
+            DBInitilzer.Initilizer(app.ApplicationServices);
 
             app.UseIdentity();
 

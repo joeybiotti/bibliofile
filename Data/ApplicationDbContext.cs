@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using bibliofile.Models;
+using Bibliofile.Models;
 
-namespace bibliofile.Data
+namespace Bibliofile.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -23,10 +23,10 @@ namespace bibliofile.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<bibliofile.Models.ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<Bibliofile.Models.ApplicationUser> ApplicationUser { get; set; }
 
-        public DbSet<bibliofile.Models.Books> Books { get; set; }
+        public DbSet<Bibliofile.Models.Books> Books { get; set; }
 
-        public DbSet<bibliofile.Models.CollectedBooks> CollectedBooks { get; set; }
+        public DbSet<Bibliofile.Models.CollectedBooks> CollectedBooks { get; set; }
     }
 }

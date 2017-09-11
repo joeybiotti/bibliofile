@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace bibliofile.Migrations
+namespace Bibliofile.Migrations
 {
     public partial class Initial : Migration
     {
@@ -50,19 +50,13 @@ namespace bibliofile.Migrations
                     BookId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Author = table.Column<string>(nullable: true),
-                    BookId1 = table.Column<int>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
                     Summary = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.BookId);
-                    table.ForeignKey(
-                        name: "FK_Books_Books_BookId1",
-                        column: x => x.BookId1,
-                        principalTable: "Books",
-                        principalColumn: "BookId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -229,11 +223,6 @@ namespace bibliofile.Migrations
                 name: "IX_AspNetUsers_UserId1",
                 table: "AspNetUsers",
                 column: "UserId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Books_BookId1",
-                table: "Books",
-                column: "BookId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CollectedBooks_BookId",

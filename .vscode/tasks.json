@@ -9,7 +9,7 @@
         {
             "taskName": "build",
             "args": [ 
-                "${workspaceRoot}/bibliofile.csproj"
+                "${workspaceRoot}/Bibliofile.csproj"
             ],
             "isBuildCommand": true,
             "showOutput": "silent",

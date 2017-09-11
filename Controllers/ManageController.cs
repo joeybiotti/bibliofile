@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using bibliofile.Models;
-using bibliofile.Models.ManageViewModels;
-using bibliofile.Services;
+using Bibliofile.Models;
+using Bibliofile.Models.ManageViewModels;
+using Bibliofile.Services;
 
-namespace bibliofile.Controllers
+namespace Bibliofile.Controllers
 {
     // Built by scaffolding-- 9/11
     [Authorize]

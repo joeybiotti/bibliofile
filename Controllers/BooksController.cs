@@ -5,28 +5,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using bibliofile.Data;
-using bibliofile.Models;
+using Bibliofile.Data;
+using Bibliofile.Models;
 
-namespace bibliofile.Controllers
+namespace Bibliofile.Controllers
 {
-    // Built by scaffolding-- 9/11
-    public class BookController : Controller
+    public class BooksController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public BookController(ApplicationDbContext context)
+        public BooksController(ApplicationDbContext context)
         {
             _context = context;    
         }
 
-        // GET: Book
+        // GET: Books
         public async Task<IActionResult> Index()
         {
             return View(await _context.Books.ToListAsync());
         }
 
-        // GET: Book/Details/5
+        // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,18 +43,18 @@ namespace bibliofile.Controllers
             return View(books);
         }
 
-        // GET: Book/Create
+        // GET: Books/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Book/Create
+        // POST: Books/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,Title,Author,Summary")] Books books)
+        public async Task<IActionResult> Create([Bind("BookId,Title,Author,Summary,Image")] Books books)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +65,7 @@ namespace bibliofile.Controllers
             return View(books);
         }
 
-        // GET: Book/Edit/5
+        // GET: Books/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,12 +81,12 @@ namespace bibliofile.Controllers
             return View(books);
         }
 
-        // POST: Book/Edit/5
+        // POST: Books/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Author,Summary")] Books books)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Author,Summary,Image")] Books books)
         {
             if (id != books.BookId)
             {
@@ -117,7 +116,7 @@ namespace bibliofile.Controllers
             return View(books);
         }
 
-        // GET: Book/Delete/5
+        // GET: Books/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,7 +134,7 @@ namespace bibliofile.Controllers
             return View(books);
         }
 
-        // POST: Book/Delete/5
+        // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

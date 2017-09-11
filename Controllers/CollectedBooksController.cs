@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using bibliofile.Data;
-using bibliofile.Models;
+using Bibliofile.Data;
+using Bibliofile.Models;
 
-namespace bibliofile.Controllers
+namespace Bibliofile.Controllers
 {
     // Built by scaffolding-- 9/11
     public class CollectedBooksController : Controller
