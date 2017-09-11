@@ -9,11 +9,14 @@ namespace bibliofile.Models
 {
     public class UserBooks
     {   
+        [Key]
+        public int UserBookId {get; set;}
         [Required]
         public ApplicationUser User {get; set;}
-        [Required]
         public Books Book {get; set;}
         [Required]
         public bool IsRead {get; set;} 
+        [Required]
+        public int BookId {get; set;}
     }
 }

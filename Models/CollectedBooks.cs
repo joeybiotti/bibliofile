@@ -9,13 +9,14 @@ namespace bibliofile.Models
 {
     public class CollectedBooks
     {
-        public string CollectedBook {get; set;}
+        [Key]
+        public int CollectedBookId {get; set;}
         [Required]
         public Books Book {get; set;}
         public string Author {get; set;}
         public string Summary {get; set;}
         [Required]
         public ApplicationUser User {get; set;}
-
+        public CollectedBooks Books {get; set;}
     }
 }

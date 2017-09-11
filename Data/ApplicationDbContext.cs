@@ -24,5 +24,9 @@ namespace bibliofile.Data
         }
 
         public DbSet<bibliofile.Models.ApplicationUser> ApplicationUser { get; set; }
+
+        public DbSet<bibliofile.Models.Books> Books { get; set; }
+
+        public DbSet<bibliofile.Models.CollectedBooks> CollectedBooks { get; set; }
     }
 }
