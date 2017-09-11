@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using bibliofile.Data;
 
-namespace bibliofile.Data.Migrations
+namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -30,8 +30,7 @@ namespace bibliofile.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired();
+                    b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
 
@@ -55,8 +54,9 @@ namespace bibliofile.Data.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<string>("UserId")
-                        .IsRequired();
+                    b.Property<int>("UserId");
+
+                    b.Property<string>("UserId1");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
@@ -70,7 +70,7 @@ namespace bibliofile.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -233,8 +233,7 @@ namespace bibliofile.Data.Migrations
                 {
                     b.HasOne("bibliofile.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId1");
                 });
 
             modelBuilder.Entity("bibliofile.Models.Books", b =>
