@@ -10,10 +10,9 @@ namespace bibliofile.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
-        [Required]
+        public int UserId {get; set;}
         public string FirstName {get; set;}
-        public string LastName {get; set;}
-        [Required]
+        public string LastName {get; set;}        
         public ApplicationUser User {get; set;}
 
 
