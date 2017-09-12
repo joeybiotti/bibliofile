@@ -25,7 +25,7 @@ namespace Bibliofile.Data
                     new Books{
                         Title = "Post Office", 
                         Author = "Charles Bukowski", 
-                        Image = "https://www.goodreads.com/book/photo/51504.Post_Office",
+                        Image = "https://images.gr-assets.com/books/1424999238l/51504.jpg",
                     },
                     new Books{
                         Title="The Autobiography of Gucci Mane",

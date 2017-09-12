@@ -20,7 +20,6 @@ Outline the steps to test or reproduce the PR here.
 
 ```
 git fetch --all
-git branch -avv
 git checkout <branch-name>
 git pull origin <branch-name>
 ```
