@@ -27,8 +27,18 @@ namespace Bibliofile.Data
                         Author = "Charles Bukowski", 
                         Image = "https://www.goodreads.com/book/photo/51504.Post_Office",
                     },
+                    new Books{
+                        Title="The Autobiography of Gucci Mane",
+                        Author="Gucci Mane",
+                        Image="https://images.gr-assets.com/books/1501538675m/34623128.jpg",
+                    },
+                    new Books{
+                        Title="The Sun Also Rises", 
+                        Author="Ernest Hemingway",
+                        Image="https://images.gr-assets.com/books/1331828228l/3876.jpg"
+                    }
                 };
-                
+
                 foreach(Books x in book)
                 {
                      context.Add(x);

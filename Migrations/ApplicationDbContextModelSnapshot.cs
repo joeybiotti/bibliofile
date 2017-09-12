@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Bibliofile.Data;
 
-namespace Bibliofile.Migrations
+namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -102,8 +102,6 @@ namespace Bibliofile.Migrations
 
                     b.Property<int>("BookId");
 
-                    b.Property<int?>("BooksCollectedBookId");
-
                     b.Property<string>("Summary");
 
                     b.Property<string>("UserId")
@@ -113,11 +111,34 @@ namespace Bibliofile.Migrations
 
                     b.HasIndex("BookId");
 
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CollectedBooks");
+                });
+
+            modelBuilder.Entity("Bibliofile.Models.UserBooks", b =>
+                {
+                    b.Property<int>("UserBookId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookId");
+
+                    b.Property<int?>("BooksCollectedBookId");
+
+                    b.Property<bool>("IsRead");
+
+                    b.Property<string>("UserId")
+                        .IsRequired();
+
+                    b.HasKey("UserBookId");
+
+                    b.HasIndex("BookId");
+
                     b.HasIndex("BooksCollectedBookId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("CollectedBooks");
+                    b.ToTable("UserBooks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -235,6 +256,19 @@ namespace Bibliofile.Migrations
                 });
 
             modelBuilder.Entity("Bibliofile.Models.CollectedBooks", b =>
+                {
+                    b.HasOne("Bibliofile.Models.Books", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Bibliofile.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Bibliofile.Models.UserBooks", b =>
                 {
                     b.HasOne("Bibliofile.Models.Books", "Book")
                         .WithMany()

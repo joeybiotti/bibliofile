@@ -18,6 +18,5 @@ namespace Bibliofile.Models
         public string Summary {get; set;}
         [Required]
         public ApplicationUser User {get; set;}
-        public CollectedBooks Books {get; set;}
     }
 }

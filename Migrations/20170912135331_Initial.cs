@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Bibliofile.Migrations
+namespace bibliofile.Migrations
 {
     public partial class Initial : Migration
     {
@@ -136,7 +136,6 @@ namespace Bibliofile.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Author = table.Column<string>(nullable: true),
                     BookId = table.Column<int>(nullable: false),
-                    BooksCollectedBookId = table.Column<int>(nullable: true),
                     Summary = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -149,12 +148,6 @@ namespace Bibliofile.Migrations
                         principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CollectedBooks_CollectedBooks_BooksCollectedBookId",
-                        column: x => x.BooksCollectedBookId,
-                        principalTable: "CollectedBooks",
-                        principalColumn: "CollectedBookId",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_CollectedBooks_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -208,6 +201,40 @@ namespace Bibliofile.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UserBooks",
+                columns: table => new
+                {
+                    UserBookId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    BookId = table.Column<int>(nullable: false),
+                    BooksCollectedBookId = table.Column<int>(nullable: true),
+                    IsRead = table.Column<bool>(nullable: false),
+                    UserId = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserBooks", x => x.UserBookId);
+                    table.ForeignKey(
+                        name: "FK_UserBooks_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserBooks_CollectedBooks_BooksCollectedBookId",
+                        column: x => x.BooksCollectedBookId,
+                        principalTable: "CollectedBooks",
+                        principalColumn: "CollectedBookId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UserBooks_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
@@ -230,13 +257,23 @@ namespace Bibliofile.Migrations
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CollectedBooks_BooksCollectedBookId",
+                name: "IX_CollectedBooks_UserId",
                 table: "CollectedBooks",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserBooks_BookId",
+                table: "UserBooks",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserBooks_BooksCollectedBookId",
+                table: "UserBooks",
                 column: "BooksCollectedBookId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CollectedBooks_UserId",
-                table: "CollectedBooks",
+                name: "IX_UserBooks_UserId",
+                table: "UserBooks",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -269,7 +306,7 @@ namespace Bibliofile.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CollectedBooks");
+                name: "UserBooks");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -287,10 +324,13 @@ namespace Bibliofile.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Books");
+                name: "CollectedBooks");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
