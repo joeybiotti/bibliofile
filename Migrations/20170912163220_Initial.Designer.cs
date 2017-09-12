@@ -8,7 +8,7 @@ using Bibliofile.Data;
 namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170912153149_Initial")]
+    [Migration("20170912163220_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,11 +31,9 @@ namespace bibliofile.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired();
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("LastName")
-                        .IsRequired();
+                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
