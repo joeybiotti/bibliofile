@@ -30,9 +30,11 @@ namespace bibliofile.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .IsRequired();
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -54,10 +56,6 @@ namespace bibliofile.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<int>("UserId");
-
-                    b.Property<string>("UserId1");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
@@ -69,8 +67,6 @@ namespace bibliofile.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasName("UserNameIndex");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -102,6 +98,8 @@ namespace bibliofile.Migrations
 
                     b.Property<int>("BookId");
 
+                    b.Property<int?>("CollectedBooksCollectedBookId");
+
                     b.Property<string>("Summary");
 
                     b.Property<string>("UserId")
@@ -110,6 +108,8 @@ namespace bibliofile.Migrations
                     b.HasKey("CollectedBookId");
 
                     b.HasIndex("BookId");
+
+                    b.HasIndex("CollectedBooksCollectedBookId");
 
                     b.HasIndex("UserId");
 
@@ -248,13 +248,6 @@ namespace bibliofile.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Bibliofile.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("Bibliofile.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId1");
-                });
-
             modelBuilder.Entity("Bibliofile.Models.CollectedBooks", b =>
                 {
                     b.HasOne("Bibliofile.Models.Books", "Book")
@@ -262,8 +255,12 @@ namespace bibliofile.Migrations
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("Bibliofile.Models.CollectedBooks")
+                        .WithMany("Books")
+                        .HasForeignKey("CollectedBooksCollectedBookId");
+
                     b.HasOne("Bibliofile.Models.ApplicationUser", "User")
-                        .WithMany()
+                        .WithMany("CollectedBooks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

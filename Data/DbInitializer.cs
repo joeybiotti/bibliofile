@@ -39,6 +39,14 @@ namespace Bibliofile.Data
                     }
                 };
 
+                var appUser = new ApplicationUser[]
+                {
+                    new ApplicationUser{
+                        FirstName = "Joey",
+                        LastName = "Biotti"
+                    }
+                };
+
                 foreach(Books x in book)
                 {
                      context.Add(x);

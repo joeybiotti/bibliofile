@@ -17,8 +17,8 @@ namespace bibliofile.Migrations
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
@@ -28,19 +28,11 @@ namespace bibliofile.Migrations
                     PhoneNumberConfirmed = table.Column<bool>(nullable: false),
                     SecurityStamp = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    UserId = table.Column<int>(nullable: false),
-                    UserId1 = table.Column<string>(nullable: true),
                     UserName = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_AspNetUsers_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -136,6 +128,7 @@ namespace bibliofile.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Author = table.Column<string>(nullable: true),
                     BookId = table.Column<int>(nullable: false),
+                    CollectedBooksCollectedBookId = table.Column<int>(nullable: true),
                     Summary = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -148,6 +141,12 @@ namespace bibliofile.Migrations
                         principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CollectedBooks_CollectedBooks_CollectedBooksCollectedBookId",
+                        column: x => x.CollectedBooksCollectedBookId,
+                        principalTable: "CollectedBooks",
+                        principalColumn: "CollectedBookId",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_CollectedBooks_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -247,14 +246,14 @@ namespace bibliofile.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_UserId1",
-                table: "AspNetUsers",
-                column: "UserId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_CollectedBooks_BookId",
                 table: "CollectedBooks",
                 column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CollectedBooks_CollectedBooksCollectedBookId",
+                table: "CollectedBooks",
+                column: "CollectedBooksCollectedBookId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CollectedBooks_UserId",
