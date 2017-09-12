@@ -19,6 +19,6 @@ namespace Bibliofile.Models
         public bool IsRead {get; set;} 
         [Required]
         public int BookId {get; set;}
-        public CollectedBooks Books {get; set;}
+
     }
 }

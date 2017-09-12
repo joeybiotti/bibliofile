@@ -43,7 +43,6 @@ namespace bibliofile.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Author = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
-                    Summary = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -121,34 +120,26 @@ namespace bibliofile.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CollectedBooks",
+                name: "UserBooks",
                 columns: table => new
                 {
-                    CollectedBookId = table.Column<int>(nullable: false)
+                    UserBookId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Author = table.Column<string>(nullable: true),
                     BookId = table.Column<int>(nullable: false),
-                    CollectedBooksCollectedBookId = table.Column<int>(nullable: true),
-                    Summary = table.Column<string>(nullable: true),
+                    IsRead = table.Column<bool>(nullable: false),
                     UserId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CollectedBooks", x => x.CollectedBookId);
+                    table.PrimaryKey("PK_UserBooks", x => x.UserBookId);
                     table.ForeignKey(
-                        name: "FK_CollectedBooks_Books_BookId",
+                        name: "FK_UserBooks_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CollectedBooks_CollectedBooks_CollectedBooksCollectedBookId",
-                        column: x => x.CollectedBooksCollectedBookId,
-                        principalTable: "CollectedBooks",
-                        principalColumn: "CollectedBookId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_CollectedBooks_AspNetUsers_UserId",
+                        name: "FK_UserBooks_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -200,40 +191,6 @@ namespace bibliofile.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "UserBooks",
-                columns: table => new
-                {
-                    UserBookId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    BookId = table.Column<int>(nullable: false),
-                    BooksCollectedBookId = table.Column<int>(nullable: true),
-                    IsRead = table.Column<bool>(nullable: false),
-                    UserId = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserBooks", x => x.UserBookId);
-                    table.ForeignKey(
-                        name: "FK_UserBooks_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "BookId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserBooks_CollectedBooks_BooksCollectedBookId",
-                        column: x => x.BooksCollectedBookId,
-                        principalTable: "CollectedBooks",
-                        principalColumn: "CollectedBookId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_UserBooks_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
@@ -246,29 +203,9 @@ namespace bibliofile.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_CollectedBooks_BookId",
-                table: "CollectedBooks",
-                column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CollectedBooks_CollectedBooksCollectedBookId",
-                table: "CollectedBooks",
-                column: "CollectedBooksCollectedBookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CollectedBooks_UserId",
-                table: "CollectedBooks",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserBooks_BookId",
                 table: "UserBooks",
                 column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserBooks_BooksCollectedBookId",
-                table: "UserBooks",
-                column: "BooksCollectedBookId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserBooks_UserId",
@@ -323,13 +260,10 @@ namespace bibliofile.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "CollectedBooks");
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

@@ -8,7 +8,7 @@ using Bibliofile.Data;
 namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170912163220_Initial")]
+    [Migration("20170912191415_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,40 +79,11 @@ namespace bibliofile.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<string>("Summary");
-
                     b.Property<string>("Title");
 
                     b.HasKey("BookId");
 
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("Bibliofile.Models.CollectedBooks", b =>
-                {
-                    b.Property<int>("CollectedBookId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Author");
-
-                    b.Property<int>("BookId");
-
-                    b.Property<int?>("CollectedBooksCollectedBookId");
-
-                    b.Property<string>("Summary");
-
-                    b.Property<string>("UserId")
-                        .IsRequired();
-
-                    b.HasKey("CollectedBookId");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("CollectedBooksCollectedBookId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("CollectedBooks");
                 });
 
             modelBuilder.Entity("Bibliofile.Models.UserBooks", b =>
@@ -122,8 +93,6 @@ namespace bibliofile.Migrations
 
                     b.Property<int>("BookId");
 
-                    b.Property<int?>("BooksCollectedBookId");
-
                     b.Property<bool>("IsRead");
 
                     b.Property<string>("UserId")
@@ -132,8 +101,6 @@ namespace bibliofile.Migrations
                     b.HasKey("UserBookId");
 
                     b.HasIndex("BookId");
-
-                    b.HasIndex("BooksCollectedBookId");
 
                     b.HasIndex("UserId");
 
@@ -247,23 +214,6 @@ namespace bibliofile.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Bibliofile.Models.CollectedBooks", b =>
-                {
-                    b.HasOne("Bibliofile.Models.Books", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Bibliofile.Models.CollectedBooks")
-                        .WithMany("Books")
-                        .HasForeignKey("CollectedBooksCollectedBookId");
-
-                    b.HasOne("Bibliofile.Models.ApplicationUser", "User")
-                        .WithMany("CollectedBooks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("Bibliofile.Models.UserBooks", b =>
                 {
                     b.HasOne("Bibliofile.Models.Books", "Book")
@@ -271,12 +221,8 @@ namespace bibliofile.Migrations
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Bibliofile.Models.CollectedBooks", "Books")
-                        .WithMany()
-                        .HasForeignKey("BooksCollectedBookId");
-
                     b.HasOne("Bibliofile.Models.ApplicationUser", "User")
-                        .WithMany()
+                        .WithMany("UserBooks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

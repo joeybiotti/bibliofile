@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Bibliofile.Models;
 using Bibliofile.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Bibliofile.Data
 {
@@ -36,14 +37,21 @@ namespace Bibliofile.Data
                         Title="The Sun Also Rises", 
                         Author="Ernest Hemingway",
                         Image="https://images.gr-assets.com/books/1331828228l/3876.jpg"
-                    }
-                };
-
-                var appUser = new ApplicationUser[]
-                {
-                    new ApplicationUser{
-                        FirstName = "Joey",
-                        LastName = "Biotti"
+                    },
+                    new Books{
+                        Title= "The Great Gatsby", 
+                        Author= "F. Scott Fitzgerald", 
+                        Image= "https://images.gr-assets.com/books/1490528560l/4671.jpg"
+                    }, 
+                    new Books{
+                        Title= "The Outsiders", 
+                        Author="S.E. Hinton",
+                        Image="https://images.gr-assets.com/books/1442129426l/231804.jpg"
+                    },
+                    new Books{
+                        Title="In Cold Blood",
+                        Author="Truman Capote",
+                        Image="https://images.gr-assets.com/books/1388208531l/9920.jpg"
                     }
                 };
 
@@ -52,8 +60,9 @@ namespace Bibliofile.Data
                      context.Add(x);
                      context.SaveChanges();
                 }
-           
+                
             }
+
         }
     }
 }

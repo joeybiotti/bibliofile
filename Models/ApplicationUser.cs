@@ -12,6 +12,6 @@ namespace Bibliofile.Models
     {   
         public string FirstName {get; set;}
         public string LastName {get; set;}        
-        public ICollection <CollectedBooks> CollectedBooks {get; set;}
+        public ICollection <UserBooks> UserBooks {get; set;}
     }
 }
