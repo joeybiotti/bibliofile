@@ -70,7 +70,7 @@ namespace Bibliofile.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Books");
                 }
                 if (result.RequiresTwoFactor)
                 {
