@@ -156,7 +156,7 @@ namespace Bibliofile.Controllers
     //API- Http calls
     //GET
     [HttpGet]
-    public static async Task ProcessRepositories()
+    public static async Task SearchBooks()
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Clear();
