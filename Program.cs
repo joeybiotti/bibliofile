@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Bibliofile.Controllers;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Bibliofile
@@ -17,6 +18,8 @@ namespace Bibliofile
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
+
+                BooksController.ProcessRepositories().Wait();
 
             host.Run();
         }

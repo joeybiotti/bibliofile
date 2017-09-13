@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bibliofile.Data;
 using Bibliofile.Models;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Collections;
 
 namespace Bibliofile.Controllers
 {
@@ -148,6 +151,25 @@ namespace Bibliofile.Controllers
         private bool BooksExists(int id)
         {
             return _context.Books.Any(e => e.BookId == id);
+        }
+
+    //API- Http calls
+    //GET
+    [HttpGet]
+    public static async Task ProcessRepositories()
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/xml"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+            string path = System.Environment.GetEnvironmentVariable("GOODREADS_API_URL");
+            Console.WriteLine(path);
+            var stringTask = client.GetStringAsync($"{path}");
+
+            var msg = await stringTask;
+            Console.Write(msg);
         }
     }
 }
