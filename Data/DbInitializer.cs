@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Bibliofile.Data
 {
+    //Built on 9/12. Seeds DB with data for initial testing 
     public static class DBInitilzer
     {
         public static void Initilizer(IServiceProvider serviceProvider)

@@ -69,6 +69,7 @@ namespace Bibliofile.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    //Upon login, user is directed to collected books-- seeded data. --Joey 9-13
                     _logger.LogInformation(1, "User logged in.");
                     return RedirectToAction("Index", "Books");
                 }
