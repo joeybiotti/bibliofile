@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using bibliofile.Models;
-using bibliofile.Models.AccountViewModels;
-using bibliofile.Services;
+using Bibliofile.Models;
+using Bibliofile.Models.AccountViewModels;
+using Bibliofile.Services;
 
-namespace bibliofile.Controllers
+namespace Bibliofile.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -69,8 +69,9 @@ namespace bibliofile.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    //Upon login, user is directed to collected books-- seeded data. --Joey 9-13
                     _logger.LogInformation(1, "User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Books");
                 }
                 if (result.RequiresTwoFactor)
                 {

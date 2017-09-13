@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using bibliofile.Data;
+using Bibliofile.Data;
 
 namespace bibliofile.Migrations
 {
@@ -15,7 +15,7 @@ namespace bibliofile.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
 
-            modelBuilder.Entity("bibliofile.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Bibliofile.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -54,10 +54,6 @@ namespace bibliofile.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<int>("UserId");
-
-                    b.Property<string>("UserId1");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
@@ -70,56 +66,44 @@ namespace bibliofile.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex");
 
-                    b.HasIndex("UserId1");
-
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("bibliofile.Models.Books", b =>
+            modelBuilder.Entity("Bibliofile.Models.Books", b =>
                 {
                     b.Property<int>("BookId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Author");
 
-                    b.Property<int?>("BookId1");
-
-                    b.Property<string>("Summary");
+                    b.Property<string>("Image");
 
                     b.Property<string>("Title");
 
                     b.HasKey("BookId");
 
-                    b.HasIndex("BookId1");
-
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("bibliofile.Models.CollectedBooks", b =>
+            modelBuilder.Entity("Bibliofile.Models.UserBooks", b =>
                 {
-                    b.Property<int>("CollectedBookId")
+                    b.Property<int>("UserBookId")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Author");
 
                     b.Property<int>("BookId");
 
-                    b.Property<int?>("BooksCollectedBookId");
-
-                    b.Property<string>("Summary");
+                    b.Property<bool>("IsRead");
 
                     b.Property<string>("UserId")
                         .IsRequired();
 
-                    b.HasKey("CollectedBookId");
+                    b.HasKey("UserBookId");
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("BooksCollectedBookId");
-
                     b.HasIndex("UserId");
 
-                    b.ToTable("CollectedBooks");
+                    b.ToTable("UserBooks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -229,33 +213,15 @@ namespace bibliofile.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("bibliofile.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Bibliofile.Models.UserBooks", b =>
                 {
-                    b.HasOne("bibliofile.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId1");
-                });
-
-            modelBuilder.Entity("bibliofile.Models.Books", b =>
-                {
-                    b.HasOne("bibliofile.Models.Books", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId1");
-                });
-
-            modelBuilder.Entity("bibliofile.Models.CollectedBooks", b =>
-                {
-                    b.HasOne("bibliofile.Models.Books", "Book")
+                    b.HasOne("Bibliofile.Models.Books", "Book")
                         .WithMany()
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("bibliofile.Models.CollectedBooks", "Books")
-                        .WithMany()
-                        .HasForeignKey("BooksCollectedBookId");
-
-                    b.HasOne("bibliofile.Models.ApplicationUser", "User")
-                        .WithMany()
+                    b.HasOne("Bibliofile.Models.ApplicationUser", "User")
+                        .WithMany("UserBooks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -270,7 +236,7 @@ namespace bibliofile.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("bibliofile.Models.ApplicationUser")
+                    b.HasOne("Bibliofile.Models.ApplicationUser")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -278,7 +244,7 @@ namespace bibliofile.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("bibliofile.Models.ApplicationUser")
+                    b.HasOne("Bibliofile.Models.ApplicationUser")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -291,7 +257,7 @@ namespace bibliofile.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("bibliofile.Models.ApplicationUser")
+                    b.HasOne("Bibliofile.Models.ApplicationUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

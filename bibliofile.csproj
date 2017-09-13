@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <UserSecretsId>aspnet-bibliofile-F2D71D6E-BC62-4C08-BBB8-0577077AF905</UserSecretsId>
+    <UserSecretsId>aspnet-Bibliofile-F2D71D6E-BC62-4C08-BBB8-0577077AF905</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="bibliofile.db" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Bibliofile.db" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 
-namespace bibliofile.Models
+namespace Bibliofile.Models
 {
     //Worked on 9/11
     public class UserBooks
@@ -19,5 +19,6 @@ namespace bibliofile.Models
         public bool IsRead {get; set;} 
         [Required]
         public int BookId {get; set;}
+
     }
 }
