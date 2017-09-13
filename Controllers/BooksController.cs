@@ -54,7 +54,7 @@ namespace Bibliofile.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,Title,Author,Summary,Image")] Books books)
+        public async Task<IActionResult> Create([Bind("BookId,Title,Author,Image")] Books books)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Bibliofile.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Author,Summary,Image")] Books books)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Author,Image")] Books books)
         {
             if (id != books.BookId)
             {
