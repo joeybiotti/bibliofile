@@ -18,8 +18,7 @@ namespace Bibliofile
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
-                
-                BooksController.SearchBooks().Wait();
+            
 
             host.Run();
         }
