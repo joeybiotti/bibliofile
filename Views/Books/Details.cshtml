@@ -25,8 +25,12 @@
         <dd>
             @Html.DisplayFor(model => model.Author)
         </dd>
+        <div>
+            <label><input type="checkbox" value="">Read</label>
+        </div>
     </dl>
 </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.BookId">Edit</a> |
     <a asp-action="Index">Back to List</a>
