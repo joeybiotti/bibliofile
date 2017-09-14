@@ -8,7 +8,7 @@ using Bibliofile.Data;
 namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170912191415_Initial")]
+    [Migration("20170914164957_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
