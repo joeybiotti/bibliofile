@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace bibliofile.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Books_mig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

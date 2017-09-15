@@ -1,23 +1,32 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bibliofile.Data;
 using Bibliofile.Models;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.IO;
+using System.Reflection;
+using System.Xml.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace Bibliofile.Controllers
 {
     public class BooksController : Controller
     {
         private readonly ApplicationDbContext _context;
+         private readonly UserManager<ApplicationUser> _userManager;
 
-        public BooksController(ApplicationDbContext context)
+        public BooksController(ApplicationDbContext context,  UserManager<ApplicationUser> userManager)
         {
+            _userManager = userManager;
             _context = context;    
         }
+
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Books
         public async Task<IActionResult> Index()
@@ -54,7 +63,7 @@ namespace Bibliofile.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookId,Title,Author,Summary,Image")] Books books)
+        public async Task<IActionResult> Create([Bind("BookId,Title,Author,Image")] Books books)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +95,7 @@ namespace Bibliofile.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Author,Summary,Image")] Books books)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Author,Image")] Books books)
         {
             if (id != books.BookId)
             {
@@ -148,6 +157,24 @@ namespace Bibliofile.Controllers
         private bool BooksExists(int id)
         {
             return _context.Books.Any(e => e.BookId == id);
+        }
+    
+        //Search method to search database 
+        //When search btn is clicked, database is filtered for either title or author
+        [ActionName("Search")]
+        public async Task <IActionResult> SearchIndex(string SearchString)
+        {
+            var books = from b in _context.Books
+                select b; 
+
+            var id = await GetCurrentUserAsync();
+            
+                if(!String.IsNullOrEmpty(SearchString))
+                {
+                    books = books.Where(b => b.Title.Contains(SearchString)
+                                            || b.Author.Contains(SearchString));
+                }
+                return View(books);
         }
     }
 }
