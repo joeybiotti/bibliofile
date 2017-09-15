@@ -160,6 +160,7 @@ namespace Bibliofile.Controllers
         }
     
         //Search method to search database 
+        //When search btn is clicked, database is filtered for either title or author
         [ActionName("Search")]
         public async Task <IActionResult> SearchIndex(string SearchString)
         {
