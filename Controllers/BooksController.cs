@@ -11,17 +11,22 @@ using System.IO;
 using System.Reflection;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace Bibliofile.Controllers
 {
     public class BooksController : Controller
     {
         private readonly ApplicationDbContext _context;
+         private readonly UserManager<ApplicationUser> _userManager;
 
-        public BooksController(ApplicationDbContext context)
+        public BooksController(ApplicationDbContext context,  UserManager<ApplicationUser> userManager)
         {
+            _userManager = userManager;
             _context = context;    
         }
+
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Books
         public async Task<IActionResult> Index()
@@ -152,6 +157,24 @@ namespace Bibliofile.Controllers
         private bool BooksExists(int id)
         {
             return _context.Books.Any(e => e.BookId == id);
+        }
+    
+        //Search method to search database 
+        public async Task <IActionResult> SearchIndex(string SearchString, bool IsRead)
+        {
+            var books = from b in _context.Books
+                select b; 
+
+            var id = await GetCurrentUserAsync();
+            if(IsRead == true)
+            {
+                if(!String.IsNullOrEmpty(SearchString))
+                {
+                    books = books.Where(b => b.Title.Contains(SearchString)
+                                            || b.Author.Contains(SearchString));
+                }
+            }
+                return View(books);
         }
     }
 }
