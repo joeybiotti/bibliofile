@@ -161,20 +161,18 @@ namespace Bibliofile.Controllers
     
         //Search method to search database 
         [ActionName("Search")]
-        public async Task <IActionResult> SearchIndex(string SearchString, bool IsRead)
+        public async Task <IActionResult> SearchIndex(string SearchString)
         {
             var books = from b in _context.Books
                 select b; 
 
             var id = await GetCurrentUserAsync();
-            if(IsRead == true)
-            {
+            
                 if(!String.IsNullOrEmpty(SearchString))
                 {
                     books = books.Where(b => b.Title.Contains(SearchString)
                                             || b.Author.Contains(SearchString));
                 }
-            }
                 return View(books);
         }
     }
