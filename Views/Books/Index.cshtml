@@ -1,21 +1,23 @@
 @model IEnumerable<Bibliofile.Models.Books>
 
-@{
-    ViewData["Title"] = "Index";
+    @{ ViewData["Title"] = "Index"; }
+
+    <h2>Books</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("SearchString")
+    <div class="input-group input-group-lg">
+        <input asp-area="" asp-controller="Books" asp-action="SearchIndex" type="submit" class="btn btn-info" value="Search" />
+    </div>
 }
-
-<h2>Books</h2>
-
-<div class="input-group input-group-lg">
-  <span class="input-group-addon" id="sizing-addon1" class=".btn">Search</span>
-  <input type="text" class="form-control" placeholder="Search Goodreads.com" aria-describedby="sizing-addon2">
-</div>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Title)
                 </th>
@@ -25,29 +27,29 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Image)
                 </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.Image)" width="100" height="155"/>
-            </td>
-            <td>
-                <i>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.Image)" width="100" height="155" />
+                </td>
+                <td>
+                    <i>
                 @Html.DisplayFor(modelItem => item.Title)
                 </i>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

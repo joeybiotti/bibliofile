@@ -160,6 +160,7 @@ namespace Bibliofile.Controllers
         }
     
         //Search method to search database 
+        [ActionName("Search")]
         public async Task <IActionResult> SearchIndex(string SearchString, bool IsRead)
         {
             var books = from b in _context.Books
