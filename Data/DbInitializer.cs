@@ -108,6 +108,56 @@ namespace Bibliofile.Data
                          Title="The Elements of Style",
                          Author="William Strunk Jr. and E.B. White",
                          Image="https://images.gr-assets.com/books/1347762378l/3721092.jpg"
+                    },
+                    new Books{
+                        Title="Please Kill Me: The Uncensored Oral History of Punk",
+                        Author="Legs McNeil, Gillian McCain",
+                        Image="https://images.gr-assets.com/books/1436668905l/14595.jpg"
+                    },
+                    new Books{
+                        Title="Naked Lunch", 
+                        Author="William S. Burroughs",
+                        Image="https://images.gr-assets.com/books/1407330990l/7437.jpg"
+                    },
+                    new Books{
+                        Title="Ham on Rye",
+                        Author="Charles Bukowski",
+                        Image="https://images.gr-assets.com/books/1296481494l/624821.jpg"
+                    },
+                    new Books{
+                        Title="Beowulf", 
+                        Author="Seamus Heaney (Translator)",
+                        Image="https://images.gr-assets.com/books/1327878125l/52357.jpg",
+                    },
+                    new Books{
+                        Title="A Farewell to Arms", 
+                        Author="Ernest Hemingway",
+                        Image="https://images.gr-assets.com/books/1369579147l/17978811.jpg",
+                    },
+                    new Books{
+                        Title="The Maltese Falcon", 
+                        Author="Dashiell Hammett",
+                        Image="https://images.gr-assets.com/books/1306421260l/29999.jpg",
+                    },
+                    new Books{
+                        Title="The Birth and Death of Meaning: An Interdisciplinary Perspective on the Problem of Man", 
+                        Author="Ernest Becker",
+                        Image="https://images.gr-assets.com/books/1347637531l/162759.jpg",
+                    },
+                    new Books{
+                        Title="The Demon-Haunted World: Science as a Candle in the Dark", 
+                        Author="Carl Sagan",
+                        Image="https://images.gr-assets.com/books/1405201597l/17349.jpg",
+                    },
+                    new Books{
+                        Title="The Black Swan", 
+                        Author="Nassim Nicholas Taleb",
+                        Image="https://images.gr-assets.com/books/1386925471l/242472.jpg",
+                    },
+                    new Books{
+                        Title="Life", 
+                        Author="Keith Richards",
+                        Image="https://images.gr-assets.com/books/1398913378l/17278308.jpg"
                     }
                 };
 
