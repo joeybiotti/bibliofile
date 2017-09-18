@@ -31,12 +31,6 @@ namespace Bibliofile.Data
                         Description = "'It began as a mistake.' By middle age, Henry Chinaski has lost more than twelve years of his life to the U.S. Postal Service. In a world where his three true, bitter pleasures are women, booze, and racetrack betting, he somehow drags his hangover out of bed every dawn to lug waterlogged mailbags up mud-soaked mountains, outsmart vicious guard dogs, and pray to survive the day-to-day trials of sadistic bosses and certifiable coworkers."
                     },
                     new Books{
-                        Title="The Autobiography of Gucci Mane",
-                        Author="Gucci Mane",
-                        Image="https://images.gr-assets.com/books/1501538675m/34623128.jpg",
-                        Description="For the first time Gucci Mane tells his story in his own words. It is the captivating life of an artist who forged an unlikely path to stardom and personal rebirth. Gucci Mane began writing his memoir in a maximum-security federal prison. Released in 2016, he emerged radically transformed. He was sober, smiling, focused, and positive—a far cry from the Gucci Mane of years past."
-                    },
-                    new Books{
                         Title="The Sun Also Rises", 
                         Author="Ernest Hemingway",
                         Image="https://images.gr-assets.com/books/1331828228l/3876.jpg", 
@@ -195,7 +189,27 @@ namespace Bibliofile.Data
                      context.SaveChanges();
                 }
                 
+                var toRead = new ToRead[]
+                {
+                    new ToRead{
+                        Title="The Autobiography of Gucci Mane",
+                        Author="Gucci Mane",
+                        Image="https://images.gr-assets.com/books/1501538675m/34623128.jpg",
+                        IsRead= false,
+                    },
+                    new ToRead{
+                        Title="Lords of Chaos: The Bloody Rise of the Satanic Metal Underground",
+                        Author="Michael Moynihan, Didrik Søderlind",
+                        Image="https://images.gr-assets.com/books/1328768815l/116168.jpg",
+                        IsRead= false
+                    }
+                };
+                foreach(ToRead b in toRead)
+                {   
+                    context.Add(b);
+                    context.SaveChanges();
                 }
+            }
             }
 
         }
