@@ -10,23 +10,22 @@ using Bibliofile.Models;
 
 namespace bibliofile.Controllers
 {
-    public class UserBooksController : Controller
+    public class ToReadController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public UserBooksController(ApplicationDbContext context)
+        public ToReadController(ApplicationDbContext context)
         {
             _context = context;    
         }
 
-        // GET: UserBooks
+        // GET: ToRead
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.UserBooks.Include(u => u.Book);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await _context.ToRead.ToListAsync());
         }
 
-        // GET: UserBooks/Details/5
+        // GET: ToRead/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,42 +33,39 @@ namespace bibliofile.Controllers
                 return NotFound();
             }
 
-            var userBooks = await _context.UserBooks
-                .Include(u => u.Book)
-                .SingleOrDefaultAsync(m => m.UserBookId == id);
-            if (userBooks == null)
+            var toRead = await _context.ToRead
+                .SingleOrDefaultAsync(m => m.BookId == id);
+            if (toRead == null)
             {
                 return NotFound();
             }
 
-            return View(userBooks);
+            return View(toRead);
         }
 
-        // GET: UserBooks/Create
+        // GET: ToRead/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "BookId");
             return View();
         }
 
-        // POST: UserBooks/Create
+        // POST: ToRead/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserBookId,IsRead,BookId")] UserBooks userBooks)
+        public async Task<IActionResult> Create([Bind("BookId,Title,Author,Image,IsRead")] ToRead toRead)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(userBooks);
+                _context.Add(toRead);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "BookId", userBooks.BookId);
-            return View(userBooks);
+            return View(toRead);
         }
 
-        // GET: UserBooks/Edit/5
+        // GET: ToRead/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +73,22 @@ namespace bibliofile.Controllers
                 return NotFound();
             }
 
-            var userBooks = await _context.UserBooks.SingleOrDefaultAsync(m => m.UserBookId == id);
-            if (userBooks == null)
+            var toRead = await _context.ToRead.SingleOrDefaultAsync(m => m.BookId == id);
+            if (toRead == null)
             {
                 return NotFound();
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "BookId", userBooks.BookId);
-            return View(userBooks);
+            return View(toRead);
         }
 
-        // POST: UserBooks/Edit/5
+        // POST: ToRead/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserBookId,IsRead,BookId")] UserBooks userBooks)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Author,Image,IsRead")] ToRead toRead)
         {
-            if (id != userBooks.UserBookId)
+            if (id != toRead.BookId)
             {
                 return NotFound();
             }
@@ -102,12 +97,12 @@ namespace bibliofile.Controllers
             {
                 try
                 {
-                    _context.Update(userBooks);
+                    _context.Update(toRead);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserBooksExists(userBooks.UserBookId))
+                    if (!ToReadExists(toRead.BookId))
                     {
                         return NotFound();
                     }
@@ -118,11 +113,10 @@ namespace bibliofile.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "BookId", "BookId", userBooks.BookId);
-            return View(userBooks);
+            return View(toRead);
         }
 
-        // GET: UserBooks/Delete/5
+        // GET: ToRead/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,31 +124,30 @@ namespace bibliofile.Controllers
                 return NotFound();
             }
 
-            var userBooks = await _context.UserBooks
-                .Include(u => u.Book)
-                .SingleOrDefaultAsync(m => m.UserBookId == id);
-            if (userBooks == null)
+            var toRead = await _context.ToRead
+                .SingleOrDefaultAsync(m => m.BookId == id);
+            if (toRead == null)
             {
                 return NotFound();
             }
 
-            return View(userBooks);
+            return View(toRead);
         }
 
-        // POST: UserBooks/Delete/5
+        // POST: ToRead/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var userBooks = await _context.UserBooks.SingleOrDefaultAsync(m => m.UserBookId == id);
-            _context.UserBooks.Remove(userBooks);
+            var toRead = await _context.ToRead.SingleOrDefaultAsync(m => m.BookId == id);
+            _context.ToRead.Remove(toRead);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        private bool UserBooksExists(int id)
+        private bool ToReadExists(int id)
         {
-            return _context.UserBooks.Any(e => e.UserBookId == id);
+            return _context.ToRead.Any(e => e.BookId == id);
         }
     }
 }

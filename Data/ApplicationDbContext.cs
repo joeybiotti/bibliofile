@@ -27,6 +27,6 @@ namespace Bibliofile.Data
 
         public DbSet<Bibliofile.Models.Books> Books { get; set; }
 
-        public DbSet<Bibliofile.Models.UserBooks> UserBooks { get; set; }
+        public DbSet<Bibliofile.Models.ToRead> ToRead { get; set; }
     }
 }
