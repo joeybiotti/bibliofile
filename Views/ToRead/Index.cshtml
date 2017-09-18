@@ -31,21 +31,21 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                <img src="@Html.DisplayFor(modelItem => item.Image)" width="100" height="155" />
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Author)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.IsRead)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.BookId" class="btn btn-info">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.BookId" class="btn btn-warning">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.BookId" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
