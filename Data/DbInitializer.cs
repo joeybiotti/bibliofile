@@ -37,6 +37,12 @@ namespace Bibliofile.Data
                         Description="The quintessential novel of the Lost Generation, The Sun Also Rises is one of Ernest Hemingway's masterpieces and a classic example of his spare but powerful writing style. A poignant look at the disillusionment and angst of the post-World War I generation, the novel introduces two of Hemingway's most unforgettable characters: Jake Barnes and Lady Brett Ashley. The story follows the flamboyant Brett and the hapless Jake as they journey from the wild nightlife of 1920s Paris to the brutal bullfighting rings of Spain with a motley group of expatriates. It is an age of moral bankruptcy, spiritual dissolution, unrealized love, and vanishing illusions. First published in 1926, The Sun Also Rises helped to establish Hemingway as one of the greatest writers of the twentieth century."
                     },
                     new Books{
+                        Title="Our Band Could Be Your Life: Scenes from the American Indie Underground 1981-1991",
+                        Author="Michael Azerrad",
+                        Image="https://images.gr-assets.com/books/1168029429l/29393.jpg",
+                        Description="This is the story of post-punk indie rock in America and the bands whose do-it-yourself ethic paved the way for the grunge phenomenon of the 1990s. Without major label support, these bands depended on resourcefulness and creativity to survive."
+                    },
+                    new Books{
                         Title= "The Great Gatsby", 
                         Author= "F. Scott Fitzgerald", 
                         Image= "https://images.gr-assets.com/books/1490528560l/4671.jpg", 
@@ -140,10 +146,22 @@ namespace Bibliofile.Data
                         Description="In what is widely hailed as the best of his many novels, Charles Bukowski details the long, lonely years of his own hardscrabble youth in the raw voice of alter ego Henry Chinaski. From a harrowingly cheerless childhood in Germany through acne-riddled high school years and his adolescent discoveries of alcohol, women, and the Los Angeles Public Library's collection of D. H. Lawrence, Ham on Rye offers a crude, brutal, and savagely funny portrait of an outcast's coming-of-age during the desperate days of the Great Depression."
                     },
                     new Books{
+                        Title="Freedom",
+                        Author="Jonathan Franzen",
+                        Image="https://images.gr-assets.com/books/1316729686l/7905092.jpg",
+                        Description="In his first novel since The Corrections, Jonathan Franzen has given us an epic of contemporary love and marriage. Freedom comically and tragically captures the temptations and burdens of liberty: the thrills of teenage lust, the shaken compromises of middle age, the wages of suburban sprawl, the heavy weight of empire. In charting the mistakes and joys of Freedom's characters as they struggle to learn how to live in an ever more confusing world, Franzen has produced an indelible and deeply moving portrait of our time."
+                    },
+                    new Books{
                         Title="Beowulf", 
                         Author="Seamus Heaney (Translator)",
                         Image="https://images.gr-assets.com/books/1327878125l/52357.jpg",
                         Description="Composed toward the end of the first millennium, Beowulf is the classic Northern epic of a hero’s triumphs as a young warrior and his fated death as a defender of his people. The poem is about encountering the monstrous, defeating it, and then having to live on, physically and psychically exposed in the exhausted aftermath. It is not hard to draw parallels in this story to the historical curve of consciousness in the twentieth century, but the poem also transcends such considerations, telling us psychological and spiritual truths that are permanent and liberating."
+                    },
+                    new Books{
+                        Title="The Dharma Bums", 
+                        Author="Jack Kerouac", 
+                        Image="https://images.gr-assets.com/books/1428986082l/412732.jpg",
+                        Description="Two ebullient young men search for Truth the Zen way: from marathon wine-drinking bouts, poetry jam sessions, and 'yabyum' in San Francisco's Bohemia to solitude in the high Sierras and a vigil atop Desolation Peak in Washington State. Published just a year after On the Road put the Beat Generation on the map, The Dharma Bums is sparked by Kerouac's expansiveness, humor, and a contagious zest for life"
                     },
                     new Books{
                         Title="A Farewell to Arms", 
@@ -195,12 +213,28 @@ namespace Bibliofile.Data
                         Title="The Autobiography of Gucci Mane",
                         Author="Gucci Mane",
                         Image="https://images.gr-assets.com/books/1501538675m/34623128.jpg",
+                        Description="For the first time Gucci Mane tells his story in his own words. It is the captivating life of an artist who forged an unlikely path to stardom and personal rebirth. Gucci Mane began writing his memoir in a maximum-security federal prison. Released in 2016, he emerged radically transformed. He was sober, smiling, focused, and positive—a far cry from the Gucci Mane of years past.",
                         IsRead= false,
                     },
                     new ToRead{
                         Title="Lords of Chaos: The Bloody Rise of the Satanic Metal Underground",
                         Author="Michael Moynihan, Didrik Søderlind",
                         Image="https://images.gr-assets.com/books/1328768815l/116168.jpg",
+                        Description="“An unusual combination of true crime journalism, rock and roll reporting and underground obsessiveness, Lords of Chaos turns into one of the more fascinating reads in a long time.”— Denver Post",
+                        IsRead= false
+                    },
+                    new ToRead{
+                        Title="One Hundred Years of Solitude",
+                        Author="Gabriel García Márquez",
+                        Image="https://images.gr-assets.com/books/1327881361l/320.jpg",
+                        Description="Probably Garcí­a Márquez finest and most famous work. One Hundred Years of Solitude tells the story of the rise and fall, birth and death of a mythical town of Macondo through the history of the Buendia family. Inventive, amusing, magnetic, sad, alive with unforgettable men and women, and with a truth and understanding that strike the soul. One Hundred Years of Solitude is a masterpiece of the art of fiction.", 
+                        IsRead= false
+                    },
+                    new ToRead{
+                        Title="The Wind-Up Bird Chronicle",
+                        Author="Haruki Murakami",
+                        Image="https://images.gr-assets.com/books/1327872639l/11275.jpg",
+                        Description="In a Tokyo suburb a young man named Toru Okada searches for his wife's missing cat. Soon he finds himself looking for his wife as well in a netherworld that lies beneath the placid surface of Tokyo. As these searches intersect, Okada encounters a bizarre group of allies and antagonists: a psychic prostitute; a malevolent yet mediagenic politician; a cheerfully morbid sixteen-year-old-girl; and an aging war veteran who has been permanently changed by the hideous things he witnessed during Japan's forgotten campaign in Manchuria.",
                         IsRead= false
                     }
                 };

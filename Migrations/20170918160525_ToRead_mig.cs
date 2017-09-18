@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace bibliofile.Migrations
 {
-    public partial class ToReadMigs : Migration
+    public partial class ToRead_mig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,6 +58,7 @@ namespace bibliofile.Migrations
                     BookId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Author = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
                     IsRead = table.Column<bool>(nullable: false),
                     Title = table.Column<string>(nullable: true)

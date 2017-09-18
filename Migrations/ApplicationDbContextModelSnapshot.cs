@@ -94,6 +94,8 @@ namespace bibliofile.Migrations
 
                     b.Property<string>("Author");
 
+                    b.Property<string>("Description");
+
                     b.Property<string>("Image");
 
                     b.Property<bool>("IsRead");

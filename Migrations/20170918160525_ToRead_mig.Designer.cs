@@ -8,8 +8,8 @@ using Bibliofile.Data;
 namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170918155926_ToReadMigs")]
-    partial class ToReadMigs
+    [Migration("20170918160525_ToRead_mig")]
+    partial class ToRead_mig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,6 +94,8 @@ namespace bibliofile.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Author");
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("Image");
 
