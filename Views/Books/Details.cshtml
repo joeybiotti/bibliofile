@@ -24,10 +24,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Author)
-        </dd>  
-        <br>
-            <label class="radio-inline"><input type="radio" name="optradio">Read</label>
-            <label class="radio-inline"><input type="radio" name="optradio">Unread</label>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)  
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)  
         </dd>
     </dl>
 </div>
