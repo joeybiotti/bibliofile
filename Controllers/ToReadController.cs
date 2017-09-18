@@ -86,7 +86,7 @@ namespace bibliofile.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Author,Image,IsRead")] ToRead toRead)
+        public async Task<IActionResult> Edit(int id, ToRead toRead)
         {
             if (id != toRead.BookId)
             {

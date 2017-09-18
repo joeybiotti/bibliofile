@@ -40,7 +40,13 @@
                 @Html.DisplayFor(modelItem => item.Author)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsRead)
+                <form class="isReadForm" asp-action="Edit" asp-route-id="@item.BookId">
+                    <input class="isReadBox" type="checkbox" name="IsRead">
+                    <input type="hidden" asp-for="@item.Title" name="Title">
+                    <input type="hidden" asp-for="@item.Author" name="Author">
+                    <input type="hidden" asp-for="@item.BookId" name="BookId">
+                    <input type="hidden" asp-for="@item.Image" name="Image">
+                </form>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BookId" class="btn btn-info">Edit</a> 
