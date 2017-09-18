@@ -12,10 +12,10 @@
                 <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Welcome, @UserManager.GetUserName(User)!</a>
             </li>
             <li>
-                <a asp-area="" asp-controller="UserBooks" asp-action="Index">View Read Books</a>
+                <a asp-area="" asp-controller="Books" asp-action="Index">View the Books You've Read</a>
             </li>
             <li>
-                <a asp-area="" asp-controller="Books" asp-action="Index">View Collected Books</a>
+                <a asp-area="" asp-controller="UserBooks" asp-action="Index">View the Books You Want to Read</a>
             </li>
             <li>
                 <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
