@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace bibliofile.Migrations
 {
-    public partial class NewMigs : Migration
+    public partial class ToRead_mig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,6 +49,22 @@ namespace bibliofile.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.BookId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ToRead",
+                columns: table => new
+                {
+                    BookId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Author = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
+                    IsRead = table.Column<bool>(nullable: false),
+                    Title = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ToRead", x => x.BookId);
                 });
 
             migrationBuilder.CreateTable(
@@ -121,33 +137,6 @@ namespace bibliofile.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserBooks",
-                columns: table => new
-                {
-                    UserBookId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    BookId = table.Column<int>(nullable: false),
-                    IsRead = table.Column<bool>(nullable: false),
-                    UserId = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserBooks", x => x.UserBookId);
-                    table.ForeignKey(
-                        name: "FK_UserBooks_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "BookId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserBooks_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -204,16 +193,6 @@ namespace bibliofile.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserBooks_BookId",
-                table: "UserBooks",
-                column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserBooks_UserId",
-                table: "UserBooks",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
@@ -243,7 +222,10 @@ namespace bibliofile.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "UserBooks");
+                name: "Books");
+
+            migrationBuilder.DropTable(
+                name: "ToRead");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -259,9 +241,6 @@ namespace bibliofile.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

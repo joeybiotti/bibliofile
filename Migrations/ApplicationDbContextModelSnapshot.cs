@@ -87,25 +87,22 @@ namespace bibliofile.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("Bibliofile.Models.UserBooks", b =>
+            modelBuilder.Entity("Bibliofile.Models.ToRead", b =>
                 {
-                    b.Property<int>("UserBookId")
+                    b.Property<int>("BookId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("BookId");
+                    b.Property<string>("Author");
+
+                    b.Property<string>("Image");
 
                     b.Property<bool>("IsRead");
 
-                    b.Property<string>("UserId")
-                        .IsRequired();
+                    b.Property<string>("Title");
 
-                    b.HasKey("UserBookId");
+                    b.HasKey("BookId");
 
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserBooks");
+                    b.ToTable("ToRead");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
@@ -213,19 +210,6 @@ namespace bibliofile.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Bibliofile.Models.UserBooks", b =>
-                {
-                    b.HasOne("Bibliofile.Models.Books", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Bibliofile.Models.ApplicationUser", "User")
-                        .WithMany("UserBooks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
