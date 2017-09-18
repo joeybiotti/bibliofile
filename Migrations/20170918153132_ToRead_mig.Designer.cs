@@ -8,9 +8,10 @@ using Bibliofile.Data;
 namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170918153132_ToRead_mig")]
+    partial class ToRead_mig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -75,8 +76,6 @@ namespace bibliofile.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Author");
-
-                    b.Property<string>("Description");
 
                     b.Property<string>("Image");
 
