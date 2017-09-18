@@ -8,8 +8,8 @@ using Bibliofile.Data;
 namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170917015506_MoreMigs")]
-    partial class MoreMigs
+    [Migration("20170918135450_booksmodel_mig")]
+    partial class booksmodel_mig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,6 +76,8 @@ namespace bibliofile.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Author");
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("Image");
 
