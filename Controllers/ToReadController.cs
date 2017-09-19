@@ -149,5 +149,14 @@ namespace bibliofile.Controllers
         {
             return _context.ToRead.Any(e => e.BookId == id);
         }
+
+        //POST Change IsRead from false to true
+        // [HttpPost]
+        // public async Task<IActionResult> MakeBookRead(int id)
+        // {
+        //     var book = await _context.ToRead.SingleOrDefaultAsync(o => o.IsRead == false);
+        //     return(book === true);
+        //}
+    //}
     }
-}
+} 
