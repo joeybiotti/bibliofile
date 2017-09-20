@@ -80,31 +80,13 @@ namespace bibliofile.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<string>("Title");
-
-                    b.HasKey("BookId");
-
-                    b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("Bibliofile.Models.ToRead", b =>
-                {
-                    b.Property<int>("BookId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Author");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Image");
-
                     b.Property<bool>("IsRead");
 
                     b.Property<string>("Title");
 
                     b.HasKey("BookId");
 
-                    b.ToTable("ToRead");
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>

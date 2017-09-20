@@ -5,15 +5,17 @@
 }
 
 <div>
-    <div>
-        <h1>Search Your Bookshelf</h1>
-        <br>
-        @using (Html.BeginForm())
-        {
-          @Html.TextBox("SearchString")
-            <div class="input-group input-group-lg">
-                <input asp-area="" asp-controller="Books" asp-action="Search" type="submit" class="btn btn-info btn-lg" value="Search Collection!" />
-            </div>
-        }
-    </div>
+
+        <div class="searchArea">
+            <h1 class="homeTitle">Search Your Bookshelf</h1>
+            <br>
+                @using (Html.BeginForm())
+                {
+                @Html.TextBox("SearchString")
+                    <div class="input-group input-group-lg">
+                        <input asp-area="" asp-controller="Books" asp-action="Search" type="submit" class="btn btn-danger btn-lg" value="Search Collection!" />
+                    </div>
+                }
+        </div>
+
 </div>

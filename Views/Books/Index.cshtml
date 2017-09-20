@@ -2,22 +2,20 @@
 
     @{ ViewData["Title"] = "Index"; }
 
-    <h2>Books Read</h2>
+    <h2>Books You've Read</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.TextBox("SearchString")
     <div class="input-group input-group-lg">
-         <input asp-area="" asp-controller="Books" asp-action="Search" type="submit" class="btn btn-info btn-lg" value="Search Collection!" />
-    </div>
+                <input asp-area="" asp-controller="Books" asp-action="Search" type="submit" class="btn btn-info btn-sm" value="Search Collection!" />
+            </div>
+            <br>
 }
-
-    <br>
-
-    <p>
-        <a asp-action="Create" class="btn btn-info btn-lg">Create New</a>
-    </p>
+            <p>
+                <a asp-action="Create" class="btn btn-info btn-sm">Create New</a>
+            </p>
     <table class="table">
         <thead>
             <tr>

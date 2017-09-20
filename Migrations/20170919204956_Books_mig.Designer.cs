@@ -8,8 +8,8 @@ using Bibliofile.Data;
 namespace bibliofile.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170918160525_ToRead_mig")]
-    partial class ToRead_mig
+    [Migration("20170919204956_Books_mig")]
+    partial class Books_mig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,31 +81,13 @@ namespace bibliofile.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<string>("Title");
-
-                    b.HasKey("BookId");
-
-                    b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("Bibliofile.Models.ToRead", b =>
-                {
-                    b.Property<int>("BookId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Author");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Image");
-
                     b.Property<bool>("IsRead");
 
                     b.Property<string>("Title");
 
                     b.HasKey("BookId");
 
-                    b.ToTable("ToRead");
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>

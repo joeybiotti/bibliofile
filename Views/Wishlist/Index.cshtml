@@ -1,7 +1,7 @@
-@model IEnumerable<Bibliofile.Models.ToRead>
+@model IEnumerable<Bibliofile.Models.Books>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Wishlist";
 }
 
 <h2>Books To Read</h2>
@@ -40,12 +40,9 @@
                 @Html.DisplayFor(modelItem => item.Author)
             </td>
             <td>
-                <form class="isReadForm" asp-action="Edit" asp-route-id="@item.BookId">
-                    <input class="isReadBox" type="checkbox" name="IsRead">
-                    <input type="hidden" asp-for="@item.Title" name="Title">
-                    <input type="hidden" asp-for="@item.Author" name="Author">
-                    <input type="hidden" asp-for="@item.BookId" name="BookId">
-                    <input type="hidden" asp-for="@item.Image" name="Image">
+                <form asp-action="MakeBookRead">
+                    <input type="hidden" value="@item.BookId" name="id">
+                   <input  class="btn btn-info" type="submit" value="Make as Read"> 
                 </form>
             </td>
             <td>
