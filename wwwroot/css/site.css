@@ -107,6 +107,9 @@ footer p{
 
 .btn-sm{
     margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 5px;
+    box-shadow: 1px 1px 1px grey;
 }
 
 .btn-lg{
