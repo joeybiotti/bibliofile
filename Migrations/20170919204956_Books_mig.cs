@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace bibliofile.Migrations
 {
-    public partial class ToRead_mig : Migration
+    public partial class Books_mig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,28 +44,12 @@ namespace bibliofile.Migrations
                     Author = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Books", x => x.BookId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ToRead",
-                columns: table => new
-                {
-                    BookId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Author = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Image = table.Column<string>(nullable: true),
                     IsRead = table.Column<bool>(nullable: false),
                     Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ToRead", x => x.BookId);
+                    table.PrimaryKey("PK_Books", x => x.BookId);
                 });
 
             migrationBuilder.CreateTable(
@@ -224,9 +208,6 @@ namespace bibliofile.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Books");
-
-            migrationBuilder.DropTable(
-                name: "ToRead");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");

@@ -1,10 +1,10 @@
-@model IEnumerable<Bibliofile.Models.ToRead>
+@model IEnumerable<Bibliofile.Models.Books>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "To Read";
 }
 
-<h2>Index</h2>
+<h2>Books To Read</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -40,7 +40,10 @@
                 @Html.DisplayFor(modelItem => item.Author)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsRead)
+                <form asp-action="MakeBookRead">
+                    <input type="hidden" value="@item.BookId" name="id">
+                   <input  class="btn btn-info" type="submit" value="Make as Read"> 
+                </form>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BookId" class="btn btn-info">Edit</a> 
