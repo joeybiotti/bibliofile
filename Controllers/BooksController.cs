@@ -31,7 +31,13 @@ namespace Bibliofile.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Books.ToListAsync());
+            return View(await _context.Books.Where(b => b.IsRead == true).ToListAsync());   
+        }
+
+        //GET To Read
+        public async Task<IActionResult> ToRead()
+        {
+            return View(await _context.Books.Where(b => b.IsRead == false).ToListAsync());
         }
 
         // GET: Books/Details/5
@@ -175,6 +181,17 @@ namespace Bibliofile.Controllers
                                             || b.Author.Contains(SearchString));
                 }
                 return View(books);
+        }
+
+        //Make Book Read 
+        public async Task<IActionResult> MakeBookRead(int id)
+        {
+            var book = await _context.Books
+                .SingleOrDefaultAsync(m => m.BookId == id);
+                book.IsRead = true;
+                _context.Update(book);
+                _context.SaveChanges();
+               return RedirectToAction("Index");
         }
     }
 }
