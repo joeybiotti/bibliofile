@@ -6,12 +6,37 @@ body {
     padding-bottom: 20px;
     background-color: #f4f5f9
 }
+.navbar {
+    -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    -ms-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+}
+
+.navbar.scrolled {
+    background: rgb(68, 68, 68); /* IE */
+    background: rgba(0, 0, 0, 0.78); /* NON-IE */
+}
 
 .navbar-brand{
     font-family: 'Special Elite', cursive;
     font-size: 3.5em;
     text-shadow: 2px 0.5px #D9534F;
     margin-top: 7px;
+}
+
+.navbar-btn{
+    background-color: #D9534F;
+    color: black;
+    border-radius: 5%;
+    text-decoration: none;
+}
+
+.navbar-btn:hover{
+    background-color: red;
+    color: #000;
+    text-decoration: none;
 }
 
 h2, h1{
@@ -105,11 +130,14 @@ footer p{
     text-align: center;
 }
 
+.btn{
+    box-shadow: 1px 1px 1px grey;
+}
+
 .btn-sm{
     margin-top: 10px;
     margin-right: 10px;
     margin-left: 5px;
-    box-shadow: 1px 1px 1px grey;
 }
 
 .btn-lg{
