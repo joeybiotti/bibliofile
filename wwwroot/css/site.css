@@ -10,13 +10,14 @@ body {
 .navbar-brand{
     font-family: 'Special Elite', cursive;
     font-size: 3.5em;
-    text-shadow: 2px 0.5px #fff;
+    text-shadow: 2px 0.5px #D9534F;
     margin-top: 7px;
 }
 
 h2, h1{
   font-family: 'Special Elite', cursive;
   text-align: center;
+  text-shadow: 1px 1px #D9534F;
 }
 
 /* Wrapping element */
@@ -59,8 +60,6 @@ textarea {
     background-color: #ccc;
     height: 90vh;
     margin-top: 18px;
-
-
 }
 
 .searchInput{
@@ -74,10 +73,11 @@ textarea {
 }
 
 .homeTitle{
-    color: #E71D36;
+    color: #D9534F;
     text-shadow: 1px 1px #000;
     font-weight: 800;
-    margin-top: 15px;
+    margin-top: 24px;
+    padding-top: 24px;
 }
 
 #SearchString{
