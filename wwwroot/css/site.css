@@ -120,6 +120,10 @@ textarea {
     color: #252c41;
 }
 
+#createBtn{
+    margin-top: 8px;
+}
+
 footer{
     background-color: #222;
     width: 100%;
