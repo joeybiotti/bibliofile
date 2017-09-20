@@ -10,13 +10,12 @@
             @Html.TextBox("SearchString")
         
                 <div class="input-group input-group-lg">
-                            <input asp-area="" asp-controller="Books" asp-action="Search" type="submit" class="btn btn-info btn-sm" value="Search Collection!" />
+                            <input asp-area="" asp-controller="Books" asp-action="Search" type="submit" class="btn btn-danger btn-sm" value="Search Collection!" />
+                            <a asp-action="Create" class="btn btn-success btn-sm">Create New</a>
                         </div>
                         <br>
             }
-                        <p>
-                            <a asp-action="Create" class="btn btn-info btn-sm">Create New</a>
-                        </p>
+
     </div>
     <table class="table">
         <thead>

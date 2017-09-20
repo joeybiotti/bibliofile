@@ -4,19 +4,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div>
-
-        <div class="searchArea">
-            <h1 class="homeTitle">Search Your Bookshelf</h1>
-            <br>
-                @using (Html.BeginForm())
-                {
-                @Html.TextBox("SearchString")
-                   <span class="search"> <div class="input-group input-group-lg">
-                        <input asp-area="" asp-controller="Books" asp-action="Search" type="submit" class="btn btn-danger btn-lg" value="Search Collection!" />
-                    </div>
-                   </span>
-                }
-        </div>
+<div class="searchArea">
+   
+    <h1 class="homeTitle">Search Your Bookshelf</h1>
+    <br>
+    <div class="searchInput" >
+        @using (Html.BeginForm())
+        {
+        @Html.TextBox("SearchString")
+            <span class="search"> <div class="input-group input-group-lg">
+                <input asp-area="" asp-controller="Books" asp-action="Search" type="submit" class="btn btn-danger btn-lg" id="homepageBtn" value="Search Collection!" />
+            </div>
+            </span>
+        }
+    </div>
 
 </div>
