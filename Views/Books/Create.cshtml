@@ -8,7 +8,6 @@
 
 <form asp-action="Create">
     <div class="form-horizontal">
-        <h4>New Book:</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
@@ -24,7 +23,6 @@
                 <input asp-for="Author" class="form-control" />
                 <span asp-validation-for="Author" class="text-danger"></span>
             </div>
-        </div>
         </div>
             <div class="form-group">
                 <label asp-for="Image" class="col-md-2 control-label"></label>
