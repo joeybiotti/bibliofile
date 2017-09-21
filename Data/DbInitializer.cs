@@ -311,6 +311,48 @@ namespace Bibliofile.Data
                         Description="With the same suppleness, energy, and range of voices that won their translation of The Brothers Karamazov the PEN/Book-of-the-Month Club Prize, Pevear and Volokhonsky offer a brilliant translation of Dostoevsky's classic novel that presents a clear insight into this astounding psychological thriller. ",
                         IsRead= false
                     },
+                    new Books{
+                        Title="HTML and CSS: Design and Build Websites",
+                        Author="Jon Duckett",
+                        Image="https://images.gr-assets.com/books/1348805097l/10361330.jpg",
+                        Description="Every day, more and more people want to learn some HTML and CSS. Joining the professional web designers and programmers are new audiences who need to know a little bit of code at work (update a content management system or e-commerce store) and those who want to make their personal blogs more attractive. Many books teaching HTML and CSS are dry and only written for those who want to become programmers, which is why this book takes an entirely new approach.",
+                        IsRead= true
+                    },
+                    new Books{
+                        Title="JavaScript and jQuery: Interactive Front-End Web Development",
+                        Author="Jon Duckett",
+                        Image="https://images.gr-assets.com/books/1394412494l/16219704.jpg",
+                        Description="This full-color book adopts a visual approach to teaching JavaScript & jQuery, showing you how to make web pages more interactive and interfaces more intuitive through the use of inspiring code examples, infographics, and photography. The content assumes no previous programming experience, other than knowing how to create a basic web page in HTML & CSS. You'll learn how to achieve techniques seen on many popular websites (such as adding animation, tabbed panels, content sliders, form validation, interactive galleries, and sorting data)..Introduces core programming concepts in JavaScript and jQueryUses clear descriptions, inspiring examples, and easy-to-follow diagramsTeaches you how to create scripts from scratch, and understand the thousands of JavaScripts, JavaScript APIs, and jQuery plugins that are available on the webDemonstrates the latest practices in progressive enhancement, cross-browser compatibility, and when you may be better off using CSS3",
+                        IsRead=true
+                    },
+                    new Books{
+                        Title="Eloquent JavaScript: A Modern Introduction to Programming",
+                        Author="Marijn Haverbeke",
+                        Image="https://images.gr-assets.com/books/1308260856l/8910666.jpg",
+                        Description="JavaScript is the language of the Web, and it's at the heart of every modern website from the lowliest personal blog to the mighty Google Apps. Though it's simple for beginners to pick up and play with, JavaScript is not a toy—it's a flexible and complex language, capable of much more than the showy tricks most programmers use it for.Eloquent JavaScript goes beyond the cut-and-paste scripts of the recipe books and teaches you to write code that's elegant and effective. You'll start with the basics of programming, and learn to use variables, control structures, functions, and data structures. Then you'll dive into the real JavaScript artistry: higher-order functions, closures, and object-oriented programming.",
+                        IsRead=false
+                    },
+                    new Books{
+                        Title="It",
+                        Author="Stephen King",
+                        Image="https://images.gr-assets.com/books/1355696147l/644173.jpg",
+                        Description="To the children, the town was their whole world. To the adults, knowing better, Derry, Maine was just their home town: familiar, well-ordered, a good place to live. It was the children who saw – and felt – what made Derry so horribly different. In the storm drains, in the sewers, It lurked, taking on the shape of every nightmare, each person’s deepest dread. Sometimes It reached up, seizing, tearing, killing… The adults, knowing better, knew nothing. Time passed and the children grew up, moved away. The horror of It was deep-buried, wrapped in forgetfulness. Until the grown-up children were called back, once more to confront It as It stirred and coiled in the sullen depths of their memories, reaching up again to make their past nightmares a terrible present reality. Frightening, epic, and brilliant, Stephen King’s It is one of the greatest works of a true storytelling master.",
+                        IsRead=false
+                    },
+                    new Books{
+                        Title="The Friends of Eddie Coyle",
+                        Author="George V. Higgins",
+                        Image="https://images.gr-assets.com/books/1436299032l/7896558.jpg",
+                        Description="George V. Higgins's seminal crime novel is a down-and-dirty tale of thieves, mobsters, and cops on the mean streets of Boston. When small-time gunrunner Eddie Coyle is convicted on a felony, he's looking at three years in the pen--that is, unless he sells out one of his big-fish clients to the DA. But which of the many hoods, gunmen, and executioners whom he calls his friends should he send up the river? Told almost entirely in crackling dialogue by a vivid cast of lowlifes and detectives, The Friends of Eddie Coyle is one of the greatest crime novels ever written.",
+                        IsRead=true
+                    },
+                    new Books{
+                        Title="No Country for Old Men",
+                        Author="Cormac McCarthy",
+                        Image="https://images.gr-assets.com/books/1443231179l/12497.jpg",
+                        Description="In his blistering new novel, Cormac McCarthy returns to the Texas-Mexico border, setting of his famed Border Trilogy. The time is our own, when rustlers have given way to drug-runners and small towns have become free-fire zones. One day, Llewellyn Moss finds a pickup truck surrounded by a bodyguard of dead men. A load of heroin and two million dollars in cash are still in the back. When Moss takes the money, he sets off a chain reaction of catastrophic violence that not even the law–in the person of aging, disillusioned Sheriff Bell–can contain.As Moss tries to evade his pursuers–in particular a mysterious mastermind who flips coins for human lives–McCarthy simultaneously strips down the American crime novel and broadens its concerns to encompass themes as ancient as the Bible and as bloodily contemporary as this morning’s headlines. No Country for Old Men is a triumph",
+                        IsRead=true
+                    },
                 };
 
                 foreach(Books x in book)
