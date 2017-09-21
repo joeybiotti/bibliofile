@@ -1,4 +1,5 @@
-# Bibliofile 
-
-A way for users to track books and add them to their collection!
+# BiblioFile
+### A way for users to cataloge their bookshelf.
+#### Back End Capstone Project 
+___
 
