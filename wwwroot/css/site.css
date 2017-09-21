@@ -120,6 +120,19 @@ textarea {
     color: #252c41;
 }
 
+.detailsCover{
+    box-shadow: 1.5px 1.5px lightgrey;
+    margin: 25px 15px;
+}
+
+.dbCovers{
+    box-shadow: 1.25px 2px lightgray;
+}
+
+#createBtn{
+    margin-top: 8px;
+}
+
 footer{
     background-color: #222;
     width: 100%;
