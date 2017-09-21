@@ -39,10 +39,16 @@ body {
     text-decoration: none;
 }
 
-h2, h1{
+h2, h1, h3{
   font-family: 'Special Elite', cursive;
   text-align: center;
   text-shadow: 1px 1px #D9534F;
+}
+
+h4{
+    font-family: 'Special Elite', cursive;
+    text-align: left;
+     text-shadow: 1px 1px #D9534F;   
 }
 
 /* Wrapping element */
@@ -129,8 +135,14 @@ textarea {
     box-shadow: 1.25px 2px lightgray;
 }
 
-#createBtn{
-    margin-top: 8px;
+
+#createBtns{
+    display: inline;
+    margin-top: 6px;
+}
+
+#backBtn{
+    margin-top: 5px;
 }
 
 footer{
