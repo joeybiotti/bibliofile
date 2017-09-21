@@ -254,7 +254,63 @@ namespace Bibliofile.Data
                         Image="https://images.gr-assets.com/books/1327872639l/11275.jpg",
                         Description="In a Tokyo suburb a young man named Toru Okada searches for his wife's missing cat. Soon he finds himself looking for his wife as well in a netherworld that lies beneath the placid surface of Tokyo. As these searches intersect, Okada encounters a bizarre group of allies and antagonists: a psychic prostitute; a malevolent yet mediagenic politician; a cheerfully morbid sixteen-year-old-girl; and an aging war veteran who has been permanently changed by the hideous things he witnessed during Japan's forgotten campaign in Manchuria.",
                         IsRead= false
-                    }
+                    },
+                    new Books{
+                        Title="The Hobbit",
+                        Author="J.R.R. Tolkien",
+                        Image="https://images.gr-assets.com/books/1294578696l/5915.jpg",
+                        Description="'The Hobbit' is a tale of high adventure, undertaken by a company of dwarves in search of dragon-guarded gold. A reluctant partner in this perilous quest is Bilbo Baggins, a comfort-loving, unambitious hobbit.",
+                        IsRead= true
+                    },
+                    new Books{
+                        Title="Infinite Jest",
+                        Author="David Foster Wallace",
+                        Image="https://images.gr-assets.com/books/1446876799l/6759.jpg",
+                        Description="Set in an addicts' halfway house and a tennis academy, and featuring the most endearingly screwed-up family to come along in recent fiction, Infinite Jest explores essential questions about what entertainment is and why it has come to so dominate our lives; about how our desire for entertainment affects our need to connect with other people; and about what the pleasures we choose say about who we are. Equal parts philosophical quest and screwball comedy, Infinite Jest bends every rule of fiction without sacrificing for a moment its own entertainment value. It is an exuberant, uniquely American exploration of the passions that make us human—and one of those rare books that renew the idea of what a novel can do.",
+                        IsRead= false
+                    },
+                    new Books{
+                        Title="The Best of H.P. Lovecraft: Bloodcurdling Tales of Horror and the Macabre",
+                        Author="H.P. Lovecraft,",
+                        Image="https://images.gr-assets.com/books/1333214256l/36315.jpg",
+                        Description="This is the collection that true fans of horror fiction have been waiting for: sixteen of H.P. Lovecraft's most horrifying visions, including Lovecraft's masterpiece, THE SHADOW OUT OF TIME--the shocking revelation of the mysterious forces that hold all mankind in their fearsome grip.",
+                        IsRead= true
+                    },
+                    new Books{
+                        Title="Under the Banner of Heaven",
+                        Author="Jon Krakauer ",
+                        Image="https://images.gr-assets.com/books/1442890370l/1894.jpg",
+                        Description="Jon Krakauer’s literary reputation rests on insightful chronicles of lives conducted at the outer limits. He now shifts his focus from extremes of physical adventure to extremes of religious belief within our own borders, taking readers inside isolated American communities where some 40,000 Mormon Fundamentalists still practice polygamy. Defying both civil authorities and the Mormon establishment in Salt Lake City, the renegade leaders of these Taliban-like theocracies are zealots who answer only to God.",
+                        IsRead= true
+                    },
+                    new Books{
+                        Title="The Pragmatic Programmer: From Journeyman to Master 1st Edition",
+                        Author=" Andrew Hunt , David Thomas",
+                        Image="https://images.gr-assets.com/books/1401432508l/4099.jpg",
+                        Description=" Ward Cunningham Straight from the programming trenches, The Pragmatic Programmer cuts through the increasing specialization and technicalities of modern software development to examine the core process--taking a requirement and producing working, maintainable code that delights its users. It covers topics ranging from personal responsibility and career development to architectural techniques for keeping your code flexible and easy to adapt and reuse. Read this book, and youll learn how to *Fight software rot; *Avoid the trap of duplicating knowledge; *Write flexible, dynamic, and adaptable code; *Avoid programming by coincidence; *Bullet-proof your code with contracts, assertions, and exceptions; *Capture real requirements; *Test ruthlessly and effectively; *Delight your users; *Build teams of pragmatic programmers; and *Make your developments more precise with automation. Written as a series of self-contained sections and filled with entertaining anecdotes, thoughtful examples, and interesting analogies, The Pragmatic Programmer illustrates the best practices and major pitfalls of many different aspects of software development. Whether youre a new coder, an experienced programm",
+                        IsRead= false
+                    },
+                    new Books{
+                        Title="The Corrections",
+                        Author="Jonathan Franzen",
+                        Image="https://images.gr-assets.com/books/1355011305l/3805.jpg",
+                        Description="The Lamberts – Enid and Alfred and their three grown-up children – are a troubled family living in a troubled age. Alfred is ill and as his condition worsens the whole family must face the failures, secrets and long-buried hurts that haunt them if they are to make the corrections that each desperately needs. Stretching from the Midwest in the mid-century to Wall Street and Eastern Europe in the age of globalised greed, The Corrections brings an old-time America of freight trains and civic duty into wild collision with the era of home surveillance, hands-off parenting, do-it-yourself mental healthcare, and New Economy millionaires. It announces Jonathan Franzen as one of the most brilliant interpreters of American society and the American soul.",
+                        IsRead= false
+                    },
+                    new Books{
+                        Title="Easy Riders, Raging Bulls",
+                        Author="Peter Biskind",
+                        Image="https://images.gr-assets.com/books/1388204957l/6793.jpg",
+                        Description="This down-and-dirty romp through Hollywood in the 1970s introduces the young filmmakers--Coppola, Scorsese, Lucas, Spielberg, Altman, and Beatty--and recreates an era that transformed American culture forever.",
+                        IsRead= false
+                    },
+                    new Books{
+                        Title="Crime and Punishment",
+                        Author="Fyodor Dostoevsky",
+                        Image="https://images.gr-assets.com/books/1327909635l/28348.jpg",
+                        Description="With the same suppleness, energy, and range of voices that won their translation of The Brothers Karamazov the PEN/Book-of-the-Month Club Prize, Pevear and Volokhonsky offer a brilliant translation of Dostoevsky's classic novel that presents a clear insight into this astounding psychological thriller. ",
+                        IsRead= false
+                    },
                 };
 
                 foreach(Books x in book)
